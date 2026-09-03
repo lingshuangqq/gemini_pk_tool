@@ -1,0 +1,54 @@
+{
+  "timestamp": "20260803_111153",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-3-pro-image",
+  "profile": "\u6807\u51c6\u753b\u8d28\u5de1\u68c0 (Pro Image Standard)",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 47.27347657099017,
+      "error": "",
+      "cost": 0.24,
+      "size": 1,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 40.5067206719832,
+      "error": "",
+      "cost": 0.24,
+      "size": 1,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    }
+  ]
+}

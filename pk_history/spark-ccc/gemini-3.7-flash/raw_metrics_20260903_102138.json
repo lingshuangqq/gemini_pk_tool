@@ -1,0 +1,120 @@
+{
+  "timestamp": "20260903_102138",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-3.7-flash",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 5.580533266002021,
+      "error": "",
+      "cost": 4.6499999999999995e-06,
+      "size": 42,
+      "in_tokens": 22,
+      "out_tokens": 10,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 4.772192326003278,
+      "error": "",
+      "cost": 4.05e-06,
+      "size": 25,
+      "in_tokens": 22,
+      "out_tokens": 8,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 6.175599565998709,
+      "error": "",
+      "cost": 4.6499999999999995e-06,
+      "size": 34,
+      "in_tokens": 22,
+      "out_tokens": 10,
+      "index": 3
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 4.453601378998428,
+      "error": "",
+      "cost": 4.05e-06,
+      "size": 27,
+      "in_tokens": 22,
+      "out_tokens": 8,
+      "index": 4
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 5.265428402999532,
+      "error": "",
+      "cost": 3.45e-06,
+      "size": 16,
+      "in_tokens": 22,
+      "out_tokens": 6,
+      "index": 5
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 FAILED_PRECONDITION. {'error': {'code': 400, 'message': 'User location is not supported for the API use.', 'status': 'FAILED_PRECONDITION'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 FAILED_PRECONDITION. {'error': {'code': 400, 'message': 'User location is not supported for the API use.', 'status': 'FAILED_PRECONDITION'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 FAILED_PRECONDITION. {'error': {'code': 400, 'message': 'User location is not supported for the API use.', 'status': 'FAILED_PRECONDITION'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 3
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 FAILED_PRECONDITION. {'error': {'code': 400, 'message': 'User location is not supported for the API use.', 'status': 'FAILED_PRECONDITION'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 4
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 FAILED_PRECONDITION. {'error': {'code': 400, 'message': 'User location is not supported for the API use.', 'status': 'FAILED_PRECONDITION'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 5
+    }
+  ]
+}

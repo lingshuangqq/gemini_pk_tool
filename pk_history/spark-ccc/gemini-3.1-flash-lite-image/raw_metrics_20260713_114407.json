@@ -1,0 +1,64 @@
+{
+  "timestamp": "20260713_114407",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-3.1-flash-lite-image",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 4.443245887000558,
+      "error": "",
+      "cost": 0.0968,
+      "size": 1,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 4.213922855999954,
+      "error": "",
+      "cost": 0.0968,
+      "size": 1,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource has been exhausted (e.g. check quota).', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 3
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 4.16574801600018,
+      "error": "",
+      "cost": 0.051,
+      "size": 1,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 4.5392125159996795,
+      "error": "",
+      "cost": 0.051,
+      "size": 1,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 4.025094736999563,
+      "error": "",
+      "cost": 0.051,
+      "size": 1,
+      "index": 3
+    }
+  ]
+}

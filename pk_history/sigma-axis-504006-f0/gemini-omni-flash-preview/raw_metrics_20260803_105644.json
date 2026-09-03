@@ -1,0 +1,120 @@
+{
+  "timestamp": "20260803_105644",
+  "project_id": "sigma-axis-504006-f0",
+  "model_id": "gemini-omni-flash-preview",
+  "profile": "\u6807\u51c6\u5de1\u68c0 (Omni Flash Standard)",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'gemini-omni-flash-preview is only supported in the Interactions API and cannot be called directly via generateContent.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'gemini-omni-flash-preview is only supported in the Interactions API and cannot be called directly via generateContent.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'gemini-omni-flash-preview is only supported in the Interactions API and cannot be called directly via generateContent.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 3
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'gemini-omni-flash-preview is only supported in the Interactions API and cannot be called directly via generateContent.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 4
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'gemini-omni-flash-preview is only supported in the Interactions API and cannot be called directly via generateContent.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 5
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 3
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 4
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 5
+    }
+  ]
+}

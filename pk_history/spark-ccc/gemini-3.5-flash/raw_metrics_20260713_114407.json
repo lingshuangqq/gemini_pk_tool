@@ -1,0 +1,100 @@
+{
+  "timestamp": "20260713_114407",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-3.5-flash",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 2.069441915000425,
+      "error": "",
+      "cost": 2.115e-05,
+      "size": 274,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 7.179380243000196,
+      "error": "",
+      "cost": 1.875e-05,
+      "size": 246,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 2.9416599770001994,
+      "error": "",
+      "cost": 3.4649999999999995e-05,
+      "size": 568,
+      "index": 3
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 1.6353899850000744,
+      "error": "",
+      "cost": 1.995e-05,
+      "size": 335,
+      "index": 4
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 2.0393237879998196,
+      "error": "",
+      "cost": 1.905e-05,
+      "size": 314,
+      "index": 5
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 1.954367430000275,
+      "error": "",
+      "cost": 4.725e-06,
+      "size": 25,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 1.8085161059998427,
+      "error": "",
+      "cost": 4.425e-06,
+      "size": 19,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 1.8920435710006132,
+      "error": "",
+      "cost": 3.525e-06,
+      "size": 9,
+      "index": 3
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 2.3633475500000714,
+      "error": "",
+      "cost": 3.825e-06,
+      "size": 16,
+      "index": 4
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 2.021757405000244,
+      "error": "",
+      "cost": 3.825e-06,
+      "size": 16,
+      "index": 5
+    }
+  ]
+}

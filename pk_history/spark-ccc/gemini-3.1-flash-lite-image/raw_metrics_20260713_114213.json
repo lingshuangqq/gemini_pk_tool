@@ -1,0 +1,64 @@
+{
+  "timestamp": "20260713_114213",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-3.1-flash-lite-image",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "File ../spark-ccc/spark-ccc-4d9d470f717a.json was not found.",
+      "cost": 0.0,
+      "size": 0,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "File ../spark-ccc/spark-ccc-4d9d470f717a.json was not found.",
+      "cost": 0.0,
+      "size": 0,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "File ../spark-ccc/spark-ccc-4d9d470f717a.json was not found.",
+      "cost": 0.0,
+      "size": 0,
+      "index": 3
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Requests to this API aiplatform.googleapis.com method google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent are blocked.', 'status': 'PERMISSION_DENIED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_SERVICE_BLOCKED', 'domain': 'googleapis.com', 'metadata': {'methodName': 'google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent', 'apiName': 'aiplatform.googleapis.com', 'service': 'aiplatform.googleapis.com', 'consumer': 'projects/385887862987'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Requests to this API aiplatform.googleapis.com method google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent are blocked.'}]}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Requests to this API aiplatform.googleapis.com method google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent are blocked.', 'status': 'PERMISSION_DENIED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_SERVICE_BLOCKED', 'domain': 'googleapis.com', 'metadata': {'apiName': 'aiplatform.googleapis.com', 'methodName': 'google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent', 'service': 'aiplatform.googleapis.com', 'consumer': 'projects/385887862987'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Requests to this API aiplatform.googleapis.com method google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent are blocked.'}]}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Requests to this API aiplatform.googleapis.com method google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent are blocked.', 'status': 'PERMISSION_DENIED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_SERVICE_BLOCKED', 'domain': 'googleapis.com', 'metadata': {'consumer': 'projects/385887862987', 'service': 'aiplatform.googleapis.com', 'apiName': 'aiplatform.googleapis.com', 'methodName': 'google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Requests to this API aiplatform.googleapis.com method google.cloud.aiplatform.v1beta1.PredictionService.GenerateContent are blocked.'}]}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 3
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "timestamp": "20260731_101056",
+  "project_id": "sigma-axis-504006-f0",
+  "model_id": "gemini-3.1-flash-lite",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 1.3695046310022008,
+      "error": "",
+      "cost": 7.824999999999999e-05,
+      "size": 282,
+      "in_tokens": 19,
+      "out_tokens": 49,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 1.3756115230062278,
+      "error": "",
+      "cost": 7.525e-05,
+      "size": 288,
+      "in_tokens": 19,
+      "out_tokens": 47,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 0.9836215919931419,
+      "error": "",
+      "cost": 8.425e-05,
+      "size": 315,
+      "in_tokens": 19,
+      "out_tokens": 53,
+      "index": 3
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 1.9764588569960324,
+      "error": "",
+      "cost": 9.175e-05,
+      "size": 333,
+      "in_tokens": 19,
+      "out_tokens": 58,
+      "index": 4
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 1.1428748659964185,
+      "error": "",
+      "cost": 7.824999999999999e-05,
+      "size": 284,
+      "in_tokens": 19,
+      "out_tokens": 49,
+      "index": 5
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your billing account has exceeded its monthly spending cap. Please go to AI Studio at https://ai.studio/billing to manage your billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#tier-spend-caps. ', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your billing account has exceeded its monthly spending cap. Please go to AI Studio at https://ai.studio/billing to manage your billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#tier-spend-caps. ', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your billing account has exceeded its monthly spending cap. Please go to AI Studio at https://ai.studio/billing to manage your billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#tier-spend-caps. ', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 3
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your billing account has exceeded its monthly spending cap. Please go to AI Studio at https://ai.studio/billing to manage your billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#tier-spend-caps. ', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 4
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your billing account has exceeded its monthly spending cap. Please go to AI Studio at https://ai.studio/billing to manage your billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#tier-spend-caps. ', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 5
+    }
+  ]
+}

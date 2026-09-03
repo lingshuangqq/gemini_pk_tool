@@ -1,0 +1,120 @@
+{
+  "timestamp": "20260803_105225",
+  "project_id": "sigma-axis-504006-f0",
+  "model_id": "gemini-3.6-flash",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 3.6280695149907842,
+      "error": "",
+      "cost": 3.825e-06,
+      "size": 33,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 3.1361323770252056,
+      "error": "",
+      "cost": 3.825e-06,
+      "size": 44,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 3.488181782013271,
+      "error": "",
+      "cost": 3.2249999999999996e-06,
+      "size": 47,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 3
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 2.594482575019356,
+      "error": "",
+      "cost": 3.2249999999999996e-06,
+      "size": 35,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 4
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 2.8003987859992776,
+      "error": "",
+      "cost": 3.825e-06,
+      "size": 45,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 5
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 3.320754075975856,
+      "error": "",
+      "cost": 4.2000000000000004e-06,
+      "size": 33,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 2.559809688013047,
+      "error": "",
+      "cost": 4.2000000000000004e-06,
+      "size": 49,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 2.6690686540096067,
+      "error": "",
+      "cost": 4.5e-06,
+      "size": 25,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 3
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 2.312084381002933,
+      "error": "",
+      "cost": 3.9e-06,
+      "size": 29,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 4
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 2.699751888983883,
+      "error": "",
+      "cost": 3e-06,
+      "size": 23,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 5
+    }
+  ]
+}

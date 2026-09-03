@@ -1,0 +1,100 @@
+{
+  "timestamp": "20260713_114407",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-3.1-flash-lite",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 1.6673663760002455,
+      "error": "",
+      "cost": 7.675e-05,
+      "size": 293,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 1.1607980489998226,
+      "error": "",
+      "cost": 7.824999999999999e-05,
+      "size": 284,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 1.030392182000469,
+      "error": "",
+      "cost": 7.824999999999999e-05,
+      "size": 298,
+      "index": 3
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 1.0396216099998128,
+      "error": "",
+      "cost": 9.025e-05,
+      "size": 324,
+      "index": 4
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 0.9896990510005708,
+      "error": "",
+      "cost": 7.675e-05,
+      "size": 290,
+      "index": 5
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 0.8569917860004352,
+      "error": "",
+      "cost": 1.74e-05,
+      "size": 291,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 0.8386591450007472,
+      "error": "",
+      "cost": 1.8299999999999998e-05,
+      "size": 314,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 0.8580689459995483,
+      "error": "",
+      "cost": 1.95e-05,
+      "size": 337,
+      "index": 3
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 0.7845768629995291,
+      "error": "",
+      "cost": 1.62e-05,
+      "size": 291,
+      "index": 4
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 0.826578915999562,
+      "error": "",
+      "cost": 1.56e-05,
+      "size": 288,
+      "index": 5
+    }
+  ]
+}

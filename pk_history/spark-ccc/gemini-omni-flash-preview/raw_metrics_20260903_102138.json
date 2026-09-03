@@ -1,0 +1,120 @@
+{
+  "timestamp": "20260903_102138",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-omni-flash-preview",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 4.163138281997817,
+      "error": "",
+      "cost": 1.8825e-05,
+      "size": 361,
+      "in_tokens": 19,
+      "out_tokens": 58,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 5.695567745999142,
+      "error": "",
+      "cost": 2.0925e-05,
+      "size": 380,
+      "in_tokens": 19,
+      "out_tokens": 65,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 5.584828322003887,
+      "error": "",
+      "cost": 2.2425e-05,
+      "size": 398,
+      "in_tokens": 19,
+      "out_tokens": 70,
+      "index": 3
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 3.9385368779985583,
+      "error": "",
+      "cost": 2.2125e-05,
+      "size": 383,
+      "in_tokens": 19,
+      "out_tokens": 69,
+      "index": 4
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 4.389170315000229,
+      "error": "",
+      "cost": 2.1525e-05,
+      "size": 409,
+      "in_tokens": 19,
+      "out_tokens": 67,
+      "index": 5
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "Error code: 400 - {'error': {'message': 'This API is not available in your current location. See https://ai.google.dev/gemini-api/docs/available-regions.', 'code': 'invalid_request'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "Error code: 400 - {'error': {'message': 'This API is not available in your current location. See https://ai.google.dev/gemini-api/docs/available-regions.', 'code': 'invalid_request'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "Error code: 400 - {'error': {'message': 'This API is not available in your current location. See https://ai.google.dev/gemini-api/docs/available-regions.', 'code': 'invalid_request'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 3
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "Error code: 400 - {'error': {'message': 'This API is not available in your current location. See https://ai.google.dev/gemini-api/docs/available-regions.', 'code': 'invalid_request'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 4
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "Error code: 400 - {'error': {'message': 'This API is not available in your current location. See https://ai.google.dev/gemini-api/docs/available-regions.', 'code': 'invalid_request'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 5
+    }
+  ]
+}

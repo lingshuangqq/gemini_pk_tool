@@ -1,0 +1,46 @@
+{
+  "timestamp": "20260713_114407",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-3-pro-image",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 119.39536903499993,
+      "error": "",
+      "cost": 0.0968,
+      "size": 1,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 98.10852017599973,
+      "error": "",
+      "cost": 0.0968,
+      "size": 1,
+      "index": 2
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 43.590383175999705,
+      "error": "",
+      "cost": 0.24,
+      "size": 1,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 49.37022317999981,
+      "error": "",
+      "cost": 0.24,
+      "size": 1,
+      "index": 2
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "timestamp": "20260713_114407",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-omni-flash-preview",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because This model requires both text and video response modalities.. Learn more: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because This model requires both text and video response modalities.. Learn more: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because This model requires both text and video response modalities.. Learn more: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 3
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because This model requires both text and video response modalities.. Learn more: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 4
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because This model requires both text and video response modalities.. Learn more: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 5
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 3
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 4
+    },
+    {
+      "channel": "Gemini API",
+      "success": false,
+      "latency": 0.0,
+      "error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'This model only supports Interactions API.', 'status': 'INVALID_ARGUMENT'}}",
+      "cost": 0.0,
+      "size": 0,
+      "index": 5
+    }
+  ]
+}

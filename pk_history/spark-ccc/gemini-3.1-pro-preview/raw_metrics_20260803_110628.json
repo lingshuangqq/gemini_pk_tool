@@ -1,0 +1,120 @@
+{
+  "timestamp": "20260803_110628",
+  "project_id": "spark-ccc",
+  "model_id": "gemini-3.1-pro-preview",
+  "profile": "standard",
+  "sa_results": [
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 21.219020163000096,
+      "error": "",
+      "cost": 0.00020375000000000002,
+      "size": 108,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 12.985568401025375,
+      "error": "",
+      "cost": 0.00020375000000000002,
+      "size": 110,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 6.006674698990537,
+      "error": "",
+      "cost": 0.00030875000000000005,
+      "size": 191,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 3
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": true,
+      "latency": 14.768137043021852,
+      "error": "",
+      "cost": 0.00014875,
+      "size": 73,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 4
+    },
+    {
+      "channel": "GCP Vertex AI",
+      "success": false,
+      "latency": 0.0,
+      "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.', 'status': 'RESOURCE_EXHAUSTED'}}",
+      "cost": 0.0,
+      "size": 0,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 5
+    }
+  ],
+  "api_results": [
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 4.67939848700189,
+      "error": "",
+      "cost": 0.0002,
+      "size": 103,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 1
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 5.175673821999226,
+      "error": "",
+      "cost": 0.00021,
+      "size": 116,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 2
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 4.177720150008099,
+      "error": "",
+      "cost": 0.00021,
+      "size": 116,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 3
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 4.464431728993077,
+      "error": "",
+      "cost": 0.0002,
+      "size": 103,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 4
+    },
+    {
+      "channel": "Gemini API",
+      "success": true,
+      "latency": 4.815336967003532,
+      "error": "",
+      "cost": 0.00021500000000000002,
+      "size": 126,
+      "in_tokens": 0,
+      "out_tokens": 0,
+      "index": 5
+    }
+  ]
+}
