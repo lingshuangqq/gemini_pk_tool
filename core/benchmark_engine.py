@@ -38,7 +38,7 @@ def get_gemini_api_client(api_key: Optional[str] = None) -> Optional[genai.Clien
     if not key:
         return None
     try:
-        return genai.Client(api_key=key)
+        return genai.Client(api_key=key, vertexai=False)
     except Exception:
         return None
 
