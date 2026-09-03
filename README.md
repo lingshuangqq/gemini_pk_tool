@@ -65,6 +65,61 @@ MCP Server 位于 `mcp_server/server.py`，对外暴露 4 个标准 MCP 工具�
 
 ---
 
+## 🔑 凭据与秘钥配置指南 (Credentials & API Key Configuration)
+
+本项目严格执行“安全零硬编码”原则，支持通过**环境变量**、**命令行入参**或 **MCP 动态传参**三种方式灵活指定 GCP 项目与 Gemini API 凭证：
+
+### 1. GCP Vertex AI 通道 (Service Account 授权)
+
+*   **方式 A：通过环境变量全局指定（推荐）**
+    ```bash
+    export GOOGLE_APPLICATION_CREDENTIALS="/absolute/path/to/your-project-sa-key.json"
+    ```
+*   **方式 B：通过 CLI 命令行参数指定（适合随时切换项目）**
+    ```bash
+    # 指定项目 ID 与对应 SA 密钥文件路径
+    python3 run_all_pk.py \
+      --project "spark-ccc" \
+      --sa-key "/Users/amylu/Documents/gemini-cli-project/vertex-ai-demo/gcp_quota_warmup_tool/spark-ccc/spark-ccc-6228ae67b792.json"
+    ```
+*   **方式 C：通过 MCP 工具入参动态指定（供 AI Agent 调度）**
+    在调用 `benchmark_vertex_ai` 或 `benchmark_channel_pk` 时，直接传递 `project_id` 和 `sa_key`：
+    ```json
+    {
+      "project_id": "spark-ccc",
+      "sa_key": "/Users/amylu/.../spark-ccc.json",
+      "models": ["gemini-3.8-flash"],
+      "trials": 3
+    }
+    ```
+
+### 2. Gemini API 通道 (Google AI Studio Key 授权)
+
+*   **方式 A：通过环境变量全局指定（推荐）**
+    ```bash
+    export GEMINI_API_KEY="AIzaSyYourGeminiApiKeyHere..."
+    ```
+*   **方式 B：通过 CLI 命令行参数指定**
+    ```bash
+    python3 run_all_pk.py \
+      --project "spark-ccc" \
+      --sa-key "/path/to/spark-ccc.json" \
+      --api-key "AIzaSyYourGeminiApiKeyHere..."
+    ```
+*   **方式 C：通过 MCP 工具入参动态指定（供 AI Agent 调度）**
+    在调用 `benchmark_channel_pk` 或 `benchmark_gemini_api` 时，直接传递 `api_key`：
+    ```json
+    {
+      "model_id": "gemini-3.8-flash",
+      "project_id": "spark-ccc",
+      "sa_key": "/path/to/spark-ccc.json",
+      "api_key": "AIzaSyYourGeminiApiKeyHere...",
+      "trials": 3
+    }
+    ```
+
+---
+
 ## 💻 命令行执行与脚本测试
 
 ### 1. 运行 MCP Server 本地集成验证
