@@ -37,8 +37,15 @@ description: >-
     - 输出 TPS 吞吐（15%）：$\ge 60\text{ TPS}$ 为 100 分，$\ge 40\text{ TPS}$ 为 85 分，$\ge 15\text{ TPS}$ 为 70 分。
     - 成功率稳定性（10%）：$\text{成功率} \times 100$。
 * **性价比评分 (Cost-Performance / Value Score, 0~100)**：
-  - 综合有效单价：$\text{Cost}_{\text{eff}} = \text{Input\_Price} \times 0.2 + \text{Output\_Price} \times 0.8$（单位：$/1M Tokens）。
+  - 综合有效单价：$\text{Cost}_{\text{eff}} = \text{Input\_Price} \times 0.2 + \text{Output\_Price} \times 0.8$（单位：$/1M Tokens，若处于促销期则按折扣价计算）。
   - 性价比评分：结合能力分平滑对数计算，归一化折算 0~100 分。
+
+### 2. 双维度正交打标决策规则 (Orthogonal Badge Rules)
+纯能力评分与性价比评分为两个完全正交的独立维度，严禁将能力高误打为经济标签：
+* **⚡ 深度推理旗舰**：纯能力极高（Pro 系列或能力分 $\ge 90$），且单价处于高价值区间。专用于高难度 Agent 推理与复杂架构。
+* **🥇 5折全能主力 (性价比冠军)**：通用能力优秀，同时享受官方限时 5 折（半价）优惠，综合 ROI 极高。
+* **💰 经济首选 (极致低成本)**：有效单价处于超低区间（$\le \$0.20/\text{1M}$ 或 Flash-Lite 系列），专属用于超高频路由、低成本批量任务。
+* **🚀 高速通用主力**：常规 Flash 模型标准定价状态。
 
 ### 2. 图像模型 (Image Models)
 * **纯能力评分**：图像清晰度与指令遵循度基准（Pro 级 95 分，标准级 85 分）。

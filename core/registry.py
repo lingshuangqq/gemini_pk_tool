@@ -84,10 +84,13 @@ ModelRegistry.register(ModelSpec(
     display_name="Gemini 3.8 Flash (2026 最新主力)",
     family=ModelFamily.FLASH,
     description="2026年最新主力模型，针对多步 Agent 与高并发解码进行极速优化",
-    input_price_per_1m=0.075,
-    output_price_per_1m=0.30,
+    input_price_per_1m=0.10,
+    output_price_per_1m=0.40,
     modalities=["text", "json", "streaming"],
-    aliases=["3.8-flash", "38-flash"]
+    aliases=["3.8-flash", "38-flash"],
+    is_promotional=True,
+    promo_discount=0.5,
+    promo_end_date="2026-12-31"
 ))
 
 ModelRegistry.register(ModelSpec(
@@ -98,7 +101,10 @@ ModelRegistry.register(ModelSpec(
     input_price_per_1m=0.075,
     output_price_per_1m=0.30,
     modalities=["text", "json"],
-    aliases=["3.7-flash"]
+    aliases=["3.7-flash"],
+    is_promotional=True,
+    promo_discount=0.5,
+    promo_end_date="2026-12-31"
 ))
 
 ModelRegistry.register(ModelSpec(
@@ -109,7 +115,10 @@ ModelRegistry.register(ModelSpec(
     input_price_per_1m=0.075,
     output_price_per_1m=0.30,
     modalities=["text", "json"],
-    aliases=["3.6-flash"]
+    aliases=["3.6-flash"],
+    is_promotional=True,
+    promo_discount=0.5,
+    promo_end_date="2026-12-31"
 ))
 
 ModelRegistry.register(ModelSpec(

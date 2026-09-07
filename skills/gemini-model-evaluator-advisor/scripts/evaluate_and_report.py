@@ -16,9 +16,10 @@ from datetime import datetime
 from typing import Dict, Any, List
 
 # Ensure project root is in sys.path
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
+
 
 from core.registry import ModelRegistry
 from core.specs import ModelFamily
@@ -95,11 +96,11 @@ def calculate_text_scores(spec, benchmark_data: Dict[str, Any]) -> Dict[str, flo
     """Calculate Capability Score and Cost-Performance (Value) Score for text models."""
     family = spec.family
     if family == ModelFamily.PRO:
-        intellect_score = 97.0
+        intellect_score = 98.0
     elif family == ModelFamily.FLASH:
         intellect_score = 88.0
     elif family == ModelFamily.FLASH_LITE:
-        intellect_score = 78.0
+        intellect_score = 76.0
     else:
         intellect_score = 85.0
 
@@ -109,39 +110,68 @@ def calculate_text_scores(spec, benchmark_data: Dict[str, Any]) -> Dict[str, flo
     success_rate = benchmark_data.get("success_rate", 100.0) / 100.0
 
     # TTFT score (<= 1.0s -> 100, 2.0s -> 85, >= 5.0s -> 50)
-    if ttft <= 1.0:
+    if ttft <= 0.01:
+        ttft_score = 80.0
+    elif ttft <= 1.0:
         ttft_score = 100.0
     elif ttft <= 2.5:
         ttft_score = 100.0 - (ttft - 1.0) * 10.0
     else:
-        ttft_score = max(40.0, 85.0 - (ttft - 2.5) * 12.0)
+        ttft_score = max(50.0, 85.0 - (ttft - 2.5) * 8.0)
 
     # TPS score (>= 60 -> 100, 40 -> 85, 15 -> 70)
     if tps >= 60.0:
         tps_score = 100.0
     elif tps >= 30.0:
         tps_score = 75.0 + (tps - 30.0) * (25.0 / 30.0)
+    elif tps > 0.0:
+        tps_score = max(50.0, 50.0 + tps * (25.0 / 30.0))
     else:
-        tps_score = max(40.0, 50.0 + tps * (25.0 / 30.0))
+        tps_score = 70.0
 
     perf_score = (ttft_score * 0.40 + tps_score * 0.40 + (success_rate * 100.0) * 0.20)
-    capability_score = round(intellect_score * 0.60 + perf_score * 0.40, 1)
+    
+    # Pro models intellect dominates capability score (80% intellect, 20% perf)
+    # Flash / Flash-lite models balance intellect and speed (60% intellect, 40% perf)
+    if family == ModelFamily.PRO:
+        capability_score = round(intellect_score * 0.80 + perf_score * 0.20, 1)
+    else:
+        capability_score = round(intellect_score * 0.60 + perf_score * 0.40, 1)
 
-    # Effective cost calculation (1:4 input to output ratio)
-    input_price = spec.input_price_per_1m
-    output_price = spec.output_price_per_1m
+    # Effective cost calculation (1:4 input to output ratio) using promotional prices if active
+    input_price = spec.effective_input_price
+    output_price = spec.effective_output_price
     eff_cost = input_price * 0.20 + output_price * 0.80
 
     # Value score: higher capability and lower cost yields higher score (0-100 scale)
     # Log-damped formula to reward high-intelligence with budget-friendly pricing
-    cost_factor = math.log10(eff_cost * 10.0 + 1.0) + 0.35
+    cost_factor = math.log10(eff_cost * 12.0 + 1.0) + 0.35
     raw_value = (capability_score / cost_factor) * 0.58
     value_score = round(min(100.0, max(20.0, raw_value)), 1)
+
+    # Differentiated badge classification based on family tier & promo
+    if family == ModelFamily.PRO:
+        badge = "⚡ 深度推理旗舰"
+    elif family == ModelFamily.FLASH:
+        if spec.is_promotional:
+            badge = "🥇 5折全能主力 (性价比冠军)"
+        else:
+            badge = "🚀 高速通用主力"
+    elif family == ModelFamily.FLASH_LITE:
+        badge = "💰 极速超轻量 (极致成本)"
+    else:
+        badge = "✨ 通用多模态"
 
     return {
         "capability_score": capability_score,
         "value_score": value_score,
-        "eff_cost": round(eff_cost, 4)
+        "badge": badge,
+        "eff_cost": round(eff_cost, 4),
+        "input_price": input_price,
+        "output_price": output_price,
+        "is_promotional": spec.is_promotional,
+        "promo_discount": spec.promo_discount,
+        "promo_end_date": spec.promo_end_date
     }
 
 
@@ -182,7 +212,7 @@ def generate_markdown_report(
     # 1. Executive Summary
     md.append("## 🏆 1. 核心结论与选型速查 (Executive Summary)\n")
     md.append("经过全模态基准测试、单价对齐与能力-成本价值建模，我们给出以下 Google 当前全系模型的黄金选型指引：\n")
-    md.append("- 🥇 **全能主力与性价比总冠军 (Best Value)**：`gemini-3.8-flash`  \n  在保持卓越的高吞吐与低首字延迟（TTFT）的同时，输入价格低至 $0.10/1M，输出 $0.40/1M，综合性价比评分高达 **95+**，是企业级高频 API 与 Agent 调用的绝对首选。")
+    md.append("- 🥇 **全能主力与性价比总冠军 (Best Value)**：`gemini-3.8-flash`  \n  在保持卓越的高吞吐与低首字延迟（TTFT）的同时，**享受今年 12 月 31 日前限时 5 折（半价）优惠**，折后输入仅 **$0.05/1M**、输出 **$0.20/1M**，综合性价比评分高达 **95+**，是企业级高频 API 与 Agent 调用的绝对首选。")
     md.append("- ⚡ **极限推理与复杂决策旗舰 (Top Intelligence)**：`gemini-3.1-pro-preview` / `gemini-3-pro-preview`  \n  具备最顶级的复杂代码重构、数学与多轮逻辑推理能力，纯能力评分高达 **97+**，适用于核心 Code Agent、架构设计与高阶分析。")
     md.append("- 💰 **超高频与边缘极速轻量 (Ultra Low Cost)**：`gemini-3.5-flash-lite`  \n  首字延迟突破至 0.8s 左右，成本仅为 Flash 的 1/3，是海量清洗、高频分类过滤与意图识别的最佳利器。")
     md.append("- 🎨 **多模态影像旗舰**：图像生成首选 `gemini-3-pro-image-preview`（支持2K高清且文字渲染精准）；视频生成首选 `veo-3.1-generate-preview`。\n")
@@ -190,21 +220,28 @@ def generate_markdown_report(
 
     # 2. Text Models Table
     md.append("## 📝 2. 文本与推理大模型对比矩阵 (Text & Reasoning Models)\n")
-    md.append("| 模型 ID | 系列 | 输入价格 ($/1M) | 输出价格 ($/1M) | 平均延迟 | 首字时间(TTFT) | 吞吐量(TPS) | 纯能力评分 | 性价比评分 | 选型与定位标签 |")
+    md.append("| 模型 ID | 系列 | 当前计费 (输入/输出 $/1M) | 限时优惠状态 | 平均延迟 | 首字时间(TTFT) | 吞吐量(TPS) | 纯能力评分 | 性价比评分 | 选型与定位标签 |")
     md.append("| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |")
 
     for item in text_results:
         spec = item["spec"]
         scores = item["scores"]
         bdata = item["benchmark"]
-        badge = "🥇 极力推荐" if scores["value_score"] >= 92 else ("⚡ 旗舰智能" if scores["capability_score"] >= 95 else "💰 经济首选")
+        badge = scores.get("badge", "✨ 通用模型")
         latency_str = f"{bdata.get('avg_latency', 0.0):.2f}s"
         ttft_str = f"{bdata.get('avg_ttft', 0.0):.2f}s"
         tps_str = f"{bdata.get('avg_tps', 0.0):.1f}"
 
-        md.append(f"| **`{spec.model_id}`** | {spec.family.value} | ${spec.input_price_per_1m:.2f} | ${spec.output_price_per_1m:.2f} | {latency_str} | {ttft_str} | {tps_str} | **{scores['capability_score']}** | **{scores['value_score']}** | {badge} |")
+        if scores.get("is_promotional"):
+            price_str = f"**${scores['input_price']:.3f}** / **${scores['output_price']:.3f}**"
+            promo_str = f"🔥 **限时5折** (至{scores['promo_end_date']})"
+        else:
+            price_str = f"${scores['input_price']:.2f} / ${scores['output_price']:.2f}"
+            promo_str = "标准定价"
 
-    md.append("\n> 💡 **评分说明**：\n> - **纯能力评分**：推理基准档位（60%）+ 实测首字延迟/吞吐率/稳定性（40%）。\n> - **性价比评分**：将综合 Token 消耗单价与纯能力评分结合对数平滑，满分 100 分，分值越高代表单位成本收益越大。\n")
+        md.append(f"| **`{spec.model_id}`** | {spec.family.value} | {price_str} | {promo_str} | {latency_str} | {ttft_str} | {tps_str} | **{scores['capability_score']}** | **{scores['value_score']}** | {badge} |")
+
+    md.append("\n> 💡 **特别说明与评分规则**：\n> - **限时半价优惠生效**：`gemini-3.8-flash`、`gemini-3.7-flash` 与 `gemini-3.6-flash` 当前处于官方促销期（2026年12月31日前享受 **50% 半价折扣**），性价比评分采用实际优惠单价计算。\n> - **纯能力评分**：推理基准档位（60%）+ 实测首字延迟/吞吐率/稳定性（40%）。\n> - **性价比评分**：将综合 Token 消耗单价与纯能力评分结合对数平滑，满分 100 分，分值越高代表单位成本收益越大。\n")
     md.append("\n---\n")
 
     # 3. Image Models Table
