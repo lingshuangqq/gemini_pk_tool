@@ -53,15 +53,28 @@ MCP Server 位于 `mcp_server/server.py`，对外暴露 4 个标准 MCP 工具�
         "-m",
         "mcp_server.server"
       ],
-      "cwd": "/path/to/gemini_pk_tool",
+      "cwd": "/path/to/gcp_vs_geminiapi_pk_tool",
       "env": {
-        "PYTHONPATH": "/path/to/gemini_pk_tool",
-        "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your-service-account-key.json"
+        "PYTHONPATH": "/path/to/gcp_vs_geminiapi_pk_tool",
+        "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your-service-account-key.json",
+        "GEMINI_API_KEY": "<YOUR_GEMINI_API_KEY>",
+        "http_proxy": "http://127.0.0.1:<YOUR_PROXY_PORT>",
+        "https_proxy": "http://127.0.0.1:<YOUR_PROXY_PORT>"
       }
     }
   }
 }
 ```
+
+#### 环境变量说明
+
+| 环境变量 | 属性 | 说明与示例 |
+| :--- | :--- | :--- |
+| **`PYTHONPATH`** | **必填** | 项目根目录绝对路径，确保 MCP Server 正确加载 `core` 等内部模块。 |
+| **`GOOGLE_APPLICATION_CREDENTIALS`** | **必填** | Vertex AI 评测所需的 GCP Service Account 密钥 JSON 文件绝对路径。 |
+| **`GEMINI_API_KEY`** | **必填** | Google AI Studio API Key，用于 Gemini API 通道基准评测及双通道 PK 对决。 |
+| **`http_proxy` / `https_proxy`** | **选填（非固定）** | **视本地网络环境而定**。国内网络访问 Google API 时填入本地代理端口（如 Clash 常为 `7890` 或 `7897`，Surge 为 `6152`，V2Ray 为 `1087`）；若运行在海外云服务器或网络可直连 Google API 时，**请直接删除此配置**。 |
+
 
 ---
 
