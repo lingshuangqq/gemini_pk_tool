@@ -26,8 +26,23 @@ def classify_error(err_str: str) -> str:
         return "404_NOT_FOUND"
     return "OTHER_ERROR"
 
-def get_vertex_client(project_id: str, location: str = "global", sa_key: Optional[str] = None) -> genai.Client:
-    """Create a Google GenAI Client configured for Vertex AI."""
+def get_vertex_client(
+    project_id: str,
+    location: str = "global",
+    sa_key: Optional[str] = None,
+    vertex_api_key: Optional[str] = None
+) -> genai.Client:
+    """Create a Google GenAI Client configured for Vertex AI.
+    
+    Supports two authentication modes:
+    1. Service Account JSON file (via sa_key or GOOGLE_APPLICATION_CREDENTIALS).
+    2. Vertex AI API Key (via vertex_api_key or VERTEX_API_KEY environment variable).
+    """
+    key = vertex_api_key or os.environ.get("VERTEX_API_KEY", "")
+    if key:
+        # Vertex AI Express Mode with API key: project and location are bound to the key
+        return genai.Client(vertexai=True, api_key=key)
+        
     if sa_key and os.path.exists(sa_key):
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = sa_key
     return genai.Client(vertexai=True, project=project_id, location=location)
@@ -48,12 +63,12 @@ async def execute_stream_trial(client: genai.Client, spec: ModelSpec, prompt: st
     start_t = time.perf_counter()
 
     if spec.is_image_model:
-        # Image model flow
+        # Native Gemini multimodal image model flow (Nano-Banana GA series)
         def _call_img():
-            return client.models.generate_images(
+            return client.models.generate_content(
                 model=spec.model_id,
-                prompt=prompt,
-                config=types.GenerateImagesConfig(number_of_images=1)
+                contents=prompt,
+                config=types.GenerateContentConfig(response_modalities=["IMAGE"])
             )
         try:
             resp = await loop.run_in_executor(None, _call_img)

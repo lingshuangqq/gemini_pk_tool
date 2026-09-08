@@ -166,44 +166,44 @@ ModelRegistry.register(ModelSpec(
     aliases=["3.1-flash-lite", "3.1-lite"]
 ))
 
-# 4. NB (Nano-Banana / Image) 系列图像生成模型
+# 4. NB (Nano-Banana / Image) 系列官方 GA 图像生成模型
 ModelRegistry.register(ModelSpec(
-    model_id="gemini-3-pro-image-preview",
+    model_id="gemini-3-pro-image",
     display_name="Gemini 3 Pro Image (Nano-Banana Pro)",
     family=ModelFamily.NANO_BANANA,
-    description="NB 旗舰图像生成与编辑模型 (代号 nano-banana-pro)",
+    description="NB 旗舰图像生成与编辑模型 (代号 nano-banana-pro, GA 官方模型)",
     input_price_per_1m=0.03,  # 每张图或定价
     output_price_per_1m=0.03,
     modalities=["text", "image_generation"],
     default_prompt="A cyberpunk neon cityscape at rainy midnight with flying vehicles, 8k resolution, cinematic lighting",
     is_image_model=True,
-    aliases=["nano-banana-pro", "gemini-3-pro-image", "nb-pro"]
+    aliases=["nano-banana-pro", "gemini-3-pro-image-preview", "nb-pro"]
 ))
 
 ModelRegistry.register(ModelSpec(
     model_id="gemini-3.1-flash-image",
-    display_name="Gemini 3.1 Flash Image",
+    display_name="Gemini 3.1 Flash Image (NB2)",
     family=ModelFamily.NANO_BANANA,
-    description="快速多模态文生图模型",
+    description="快速多模态文生图模型 (NB2, GA 官方模型)",
     input_price_per_1m=0.02,
     output_price_per_1m=0.02,
     modalities=["text", "image_generation"],
     default_prompt="A cute cartoon cyberpunk robot reading a book, vibrant colors",
     is_image_model=True,
-    aliases=["3.1-flash-image", "nb-flash"]
+    aliases=["3.1-flash-image", "gemini-3.1-flash-image-preview", "nb-flash", "nb2"]
 ))
 
 ModelRegistry.register(ModelSpec(
     model_id="gemini-3.1-flash-lite-image",
-    display_name="Gemini 3.1 Flash-Lite Image",
+    display_name="Gemini 3.1 Flash-Lite Image (NB Lite)",
     family=ModelFamily.NANO_BANANA,
-    description="轻量极速图像生成模型",
+    description="轻量极速图像生成模型 (NB Lite, GA 官方模型)",
     input_price_per_1m=0.015,
     output_price_per_1m=0.015,
     modalities=["text", "image_generation"],
     default_prompt="Minimalist geometric logo of a rocket, flat vector",
     is_image_model=True,
-    aliases=["3.1-lite-image", "nb-lite"]
+    aliases=["3.1-lite-image", "gemini-3.1-flash-lite-image-preview", "nb-lite"]
 ))
 
 # 5. Omni 系列全能多模态模型

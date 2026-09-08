@@ -31,14 +31,15 @@
 
 ## 🛠️ MCP Server 工具集与使用指南
 
-MCP Server 位于 `mcp_server/server.py`，对外暴露 4 个标准 MCP 工具：
+MCP Server 位于 `mcp_server/server.py`，对外暴露 5 个标准 MCP 工具：
 
 | MCP Tool | 功能描述 | 核心入参 |
 | :--- | :--- | :--- |
 | **`list_available_models`** | 查询模型注册表中所有可用模型、系列分类与定价 | `family`: `"all"`, `"pro"`, `"flash"`, `"flash_lite"`, `"nano_banana"`, `"omni"` |
-| **`benchmark_vertex_ai`** | 在 GCP Vertex AI 上进行多维度流式基准压测 | `project_id`, `location`, `families`, `models`, `trials`, `delay`, `prompt` |
-| **`benchmark_channel_pk`** | 跨 Vertex AI 与 Gemini API 对同一模型进行双通道同频对决 | `model_id`, `project_id`, `trials`, `delay`, `prompt` |
+| **`benchmark_vertex_ai`** | 在 GCP Vertex AI 上进行多维度流式基准压测 (原有 SA 模式保持不变) | `project_id`, `location`, `sa_key`, `families`, `models`, `trials`, `delay` |
+| **`benchmark_channel_pk`** | 跨 Vertex AI 与 Gemini API 对同一模型进行双通道同频对决 (原有保持不变) | `model_id`, `project_id`, `sa_key`, `api_key`, `trials`, `delay` |
 | **`benchmark_gemini_api`** | 在 Gemini API (AI Studio) 上进行模型基准评测 | `families`, `models`, `trials`, `delay`, `api_key` |
+| **`benchmark_vertex_cross_projects`** | **[新特性]** 跨不同 GCP Project 对比相同模型的生成速度 (支持 Vertex AI API Key) | `project_a_id`, `project_b_id`, `models`, `project_a_key`, `project_b_key`, `trials` |
 
 ### 🔧 在 Antigravity CLI (`agy`) 中配置 MCP
 

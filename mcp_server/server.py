@@ -236,5 +236,120 @@ async def benchmark_gemini_api(
         "benchmark_summary": results
     }
 
+@mcp.tool()
+async def benchmark_vertex_cross_projects(
+    project_a_id: str,
+    project_b_id: str,
+    models: Optional[List[str]] = None,
+    families: Optional[List[str]] = None,
+    project_a_key: Optional[str] = None,
+    project_b_key: Optional[str] = None,
+    location_a: str = "global",
+    location_b: str = "global",
+    sa_key_a: Optional[str] = None,
+    sa_key_b: Optional[str] = None,
+    trials: int = 3,
+    delay: float = 1.0,
+    prompt: Optional[str] = None
+) -> Dict[str, Any]:
+    """
+    [Requirement 4] Benchmark and compare the SAME models across different GCP Vertex AI Projects.
+    
+    Supports authenticating with Project-specific Vertex AI API Keys (distinct from Gemini API Studio keys)
+    or Service Account credentials.
+    
+    Args:
+        project_a_id: GCP Project ID for Project A
+        project_b_id: GCP Project ID for Project B
+        models: List of model IDs to test (e.g. ['gemini-3.8-flash', 'gemini-3.1-pro-preview'])
+        families: List of model families if models not specified (e.g. ['flash', 'pro'])
+        project_a_key: Vertex AI dedicated API Key for Project A (optional, falls back to VERTEX_API_KEY)
+        project_b_key: Vertex AI dedicated API Key for Project B (optional, falls back to VERTEX_API_KEY)
+        location_a: Vertex AI region for Project A (default 'global')
+        location_b: Vertex AI region for Project B (default 'global')
+        sa_key_a: Service account JSON path for Project A (optional)
+        sa_key_b: Service account JSON path for Project B (optional)
+        trials: Number of trials per model (default: 3)
+        delay: Seconds between requests (default: 1.0)
+        prompt: Custom benchmark prompt (optional)
+    """
+    target_specs: List[ModelSpec] = []
+    if models:
+        for m_id in models:
+            spec = ModelRegistry.get(m_id)
+            if spec:
+                target_specs.append(spec)
+    elif families:
+        for f in families:
+            target_specs.extend(ModelRegistry.list_models(f))
+    else:
+        target_specs = [ModelRegistry.get("gemini-3.8-flash")]
+        target_specs = [s for s in target_specs if s is not None]
+
+    if not target_specs:
+        return {"status": "error", "message": "No valid models specified for cross-project benchmark."}
+
+    client_a = get_vertex_client(
+        project_id=project_a_id,
+        location=location_a,
+        sa_key=sa_key_a,
+        vertex_api_key=project_a_key
+    )
+    client_b = get_vertex_client(
+        project_id=project_b_id,
+        location=location_b,
+        sa_key=sa_key_b,
+        vertex_api_key=project_b_key
+    )
+
+    comparisons = []
+    for spec in target_specs:
+        stats_a = await benchmark_model(client_a, spec, trials=trials, delay=delay, prompt=prompt)
+        stats_b = await benchmark_model(client_b, spec, trials=trials, delay=delay, prompt=prompt)
+
+        # Evaluate winners
+        winner_latency = (
+            f"Project A ({project_a_id})" if stats_a["avg_latency"] > 0 and (stats_b["avg_latency"] == 0 or stats_a["avg_latency"] < stats_b["avg_latency"])
+            else (f"Project B ({project_b_id})" if stats_b["avg_latency"] > 0 else "Draw / None")
+        )
+        winner_ttft = (
+            f"Project A ({project_a_id})" if stats_a["avg_ttft"] > 0 and (stats_b["avg_ttft"] == 0 or stats_a["avg_ttft"] < stats_b["avg_ttft"])
+            else (f"Project B ({project_b_id})" if stats_b["avg_ttft"] > 0 else "Draw / None")
+        )
+        winner_tps = (
+            f"Project A ({project_a_id})" if stats_a["avg_tps"] > stats_b["avg_tps"]
+            else (f"Project B ({project_b_id})" if stats_b["avg_tps"] > stats_a["avg_tps"] else "Draw / None")
+        )
+
+        comparisons.append({
+            "model_id": spec.model_id,
+            "display_name": spec.display_name,
+            "project_a": {
+                "project_id": project_a_id,
+                "location": location_a,
+                "stats": stats_a
+            },
+            "project_b": {
+                "project_id": project_b_id,
+                "location": location_b,
+                "stats": stats_b
+            },
+            "winners": {
+                "latency": winner_latency,
+                "ttft": winner_ttft,
+                "throughput_tps": winner_tps
+            }
+        })
+
+    return {
+        "status": "success",
+        "benchmark_type": "vertex_cross_projects",
+        "project_a_id": project_a_id,
+        "project_b_id": project_b_id,
+        "total_models_compared": len(comparisons),
+        "comparisons": comparisons
+    }
+
 if __name__ == "__main__":
     mcp.run()
+
